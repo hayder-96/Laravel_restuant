@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use Illuminate\Support\Facades\Crypt;
+use Exception;
 class AdminController extends BaseController
 {
     
@@ -56,10 +57,17 @@ class AdminController extends BaseController
            if($users===$request->password && $user->name==$request->name){
            // if( Auth::guard('admin')->attempt(['name' => $request->name, 'password' => $request->password])){
                // $userr=Auth::user();
+               try{
             $success['token']=$user->createToken(';ejhih/><{+876yk')->accessToken;
     
+            }catch(Exception $e){
+
+                return $this->Respone($e,$users);
+
+            }
                 return $this->Respone($success,$users);
     
+                
     
          } else{
              return $this->Respone(500,"البريد  او الرمز غير متطابق");
