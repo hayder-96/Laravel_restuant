@@ -43,6 +43,9 @@ Route::middleware('admin:admin')->group(function(){
 
     Route::post('getimage',[UpimageController::class,'indexx']);
 
+    Route::put('upimagedel/{id}',[FoodadminController::class,'updatedelivery']);
+
+
     Route::put('upimagefood/{id}',[FoodadminController::class,'updateimage']);
     
     Route::put('upimagepart/{id}',[PartfoodController::class,'updateimage']);

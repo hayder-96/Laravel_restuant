@@ -50,9 +50,9 @@ class FoodadminController extends BaseController
 
 
     
-    public function getfooduserdone($id)
+    public function getfooduserdone()
     {
-        $user=userfood::all()->where('user_id',$id)->where('delivery','yes');
+        $user=userfood::all()->where('delivery','yes');
 
        return $this->Respone(us::collection($user),200);
     }
@@ -60,9 +60,9 @@ class FoodadminController extends BaseController
 
     
     
-    public function getfoodusernot($id)
+    public function getfoodusernot()
     {
-        $user=userfood::all()->where('user_id',$id)->where('delivery','no');
+        $user=userfood::all()->where('delivery','no');
 
        return $this->Respone(us::collection($user),200);
     }
