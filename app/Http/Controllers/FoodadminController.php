@@ -45,37 +45,47 @@ class FoodadminController extends BaseController
 
 
 
+    
+    
+    public function useryes()
+    {
+        $user=User::all()->where('delivery','yes');
+
+
+        return $this->Respone(ss::collection($user),200);
+    }
+
+
+    
+    
+    public function userno()
+    {
+        $user=User::all()->where('delivery','no');;
+
+
+        return $this->Respone(ss::collection($user),200);
+    }
 
 
 
 
     
-    public function getfooduserdone()
+    public function getfooduser($id)
     {
-        $user=userfood::all()->where('delivery','yes');
+        $user=userfood::all()->where('user_id',$id);
 
        return $this->Respone(us::collection($user),200);
     }
 
 
     
+
+
+
+
+
+
     
-    public function getfoodusernot()
-    {
-        $user=userfood::all()->where('delivery','no');
-
-       return $this->Respone(us::collection($user),200);
-    }
-    
-
-
-
-
-
-
-
-
-
     public function store(Request $request)
     {
         $input=$request->all();
@@ -164,9 +174,10 @@ class FoodadminController extends BaseController
       }
 
 
-      public function destroyuser($id)
+      
+    public function destroyuser($id)
     {
-        $food=userfood::find($id);
+        $food=User::find($id);
         
      $food->delete();
       return $this->Respone(new food($food),"done delete");
@@ -174,37 +185,6 @@ class FoodadminController extends BaseController
 
 
 
-
-
-
-
-
-
-
-      public function updatedelivery(Request $request,$id)
-      {
-          $uss=userfood::find($id);
-          $input=$request->all();
-  
-          $valdit=Validator::make($request->all(),[
-  
-              'delivery'=>'required',
-             
-          ]);
-  
-          if($valdit->fails()){
-  
-              return $this->sendError('Failed input',$valdit->errors());
-          }
-  
-          
-  
-          $uss->name=$input['delivery'];
-          $uss->save();
-  
-          return $this->Respone(new food($uss),'Success update');
-      }
-  
 
 
 
@@ -238,5 +218,36 @@ class FoodadminController extends BaseController
 
         return $this->Respone($uss,'Success update');
     }
+
+
+
+
+
+
+    public function updateuser(Request $request,$id)
+    {
+        $uss=User::find($id);
+        $input=$request->all();
+
+        $valdit=Validator::make($request->all(),[
+
+            'delivery'=>'required',
+           
+        ]);
+
+        if($valdit->fails()){
+
+            return $this->sendError('Failed input',$valdit->errors());
+        }
+
+        
+       
+
+        $uss->delivery=$input['delivery'];
+        $uss->save();
+
+        return $this->Respone(new food($uss),'Success update');
+    }
+
     }
 

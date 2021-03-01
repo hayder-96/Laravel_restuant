@@ -36,15 +36,16 @@ Route::middleware('admin:admin')->group(function(){
 
     Route::get('userr',[FoodadminController::class,'indexxx']);
 
-    Route::get('getfooduserr/{id}',[FoodadminController::class,'getfooduserdone']);
+    Route::get('getfooduseryes',[FoodadminController::class,'useryes']);
    
-    Route::get('getfooduserrnot/{id}',[FoodadminController::class,'getfoodusernot']);
+    Route::get('getfooduserrnot',[FoodadminController::class,'userno']);
 
 
     Route::post('getimage',[UpimageController::class,'indexx']);
 
-    Route::put('upimagedel/{id}',[FoodadminController::class,'updatedelivery']);
+    Route::put('upimagedel/{id}',[FoodadminController::class,'updateuser']);
 
+    Route::delete('deleteuser/{id}',[FoodadminController::class,'destroyuser']);
 
     Route::put('upimagefood/{id}',[FoodadminController::class,'updateimage']);
     
