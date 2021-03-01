@@ -43,11 +43,11 @@ class UserController extends BaseController
        
         $user=User::create($input);
 
-       $user=$request->name;
-         $success['token']=$user->createToken(';ejhih/><{+876yk')->accessToken;
+       //$user=$request->name;
+         //$success['token']=$user->createToken(';ejhih/><{+876yk')->accessToken;
           
     
-        return $this->Respone($success,'تم التسجيل ');
+        return $this->Respone($user,'تم التسجيل ');
     
         
     }
