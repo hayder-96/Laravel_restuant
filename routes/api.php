@@ -32,7 +32,7 @@ Route::middleware('admin:admin')->group(function(){
                 
     Route::get('userr',[FoodadminController::class,'indexxx']);
 
-    Route::get('getfooduser/{id}',[FoodadminController::class,'getfooduser']);
+    Route::get('getfooduserr/{id}',[FoodadminController::class,'getfooduser']);
    
     
 
