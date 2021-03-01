@@ -17,7 +17,7 @@ class UpimageController extends BaseController
      */
     public function indexx(Request $request)
     {
-        $user=upimage::where('food_id',$request->food_id)->where('name',$request->name);
+        $user=upimage::where('food_id',$request->food_id)->where('name',$request->name)->first();
 
         return $this->Respone(new up($user),200);
     }
