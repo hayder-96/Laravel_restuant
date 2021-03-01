@@ -159,7 +159,7 @@ class FoodadminController extends BaseController
 
       
     
-    public function updateimage(Request $request, $id)
+    public function updateimage(Request $request,$id)
     {
         
 
