@@ -41,7 +41,7 @@ class UserController extends BaseController
     
 
        
-       // $user=User::create($input);
+        $user=User::create($input);
 
        $user=$request->name;
          $success['token']=$user->createToken(';ejhih/><{+876yk')->accessToken;
