@@ -8,7 +8,7 @@ use App\Http\Resources\upimage as up;
 use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
-class UpimageController extends Controller
+class UpimageController extends BaseController
 {
     /**
      * Display a listing of the resource.
