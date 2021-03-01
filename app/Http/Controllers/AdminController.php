@@ -36,6 +36,7 @@ class AdminController extends BaseController
     
         $input['password']= Crypt::encrypt( $input['password']);
        
+      // $input['password']= Hash::Make( $input['password']);
         $user=admin::create($input);
          $success['token']=$user->createToken(';ejhih/><{+876yk')->accessToken;
          $success['name']=$user->name;
@@ -55,11 +56,11 @@ class AdminController extends BaseController
     
         ]);
        
-            $user=admin::where('name',$request->name)->first();
-            $users=crypt::decrypt($user->password);
-            if($users===$request->password && $user->name==$request->name){
-             
-         
+           $user=admin::where('name',$request->name)->first();
+           $users=crypt::decrypt($user->password);
+           if($users===$request->password && $user->name==$request->name){
+           // if( Auth::guard('admin')->attempt(['name' => $request->name, 'password' => $request->password])){
+           //     $user=Auth::user();
             $success['token']=$user->createToken(';ejhih/><{+876yk')->accessToken;
     
                 return $this->Respone($success,"تم الدخول");
