@@ -107,4 +107,29 @@ class PartfoodController extends BaseController
      $food->forceDelete();
       return $this->Respone(new food($food),"done delete");
       }
+
+
+      
+    public function updateimage(Request $request, $id)
+    {
+        
+        $uss=partfood::find($id);
+        $input=$request->all();
+
+        $valdit=Validator::make($request->all(),[
+
+            'image'=>'required'
+           
+        ]);
+
+        if($valdit->fails()){
+
+            return $this->sendError('Failed input',$valdit->errors());
+        }
+
+        $uss->image=$input['image'];
+        $uss->save();
+
+        return $this->Respone($uss,'Success update');
+    }
     }
