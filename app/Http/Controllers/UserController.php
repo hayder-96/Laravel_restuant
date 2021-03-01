@@ -15,7 +15,7 @@ use App\Http\Resources\foodadmin as food;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Resources\userresoures as ss;
 use App\Models\usersecond;
-
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 class UserController extends BaseController
 {
     
@@ -115,6 +115,23 @@ class UserController extends BaseController
 
             return $this->sendError('Failed input',$valdit->errors());
         }
+
+
+        if($request->image!=null){
+        
+    
+            $path= Cloudinary::upload($request->file('image')->getRealPath(),
+            array("public_id" =>$request->name,"quality"=>'auto'))->getSecurePath();
+            
+          }
+    
+    
+          if($request->image!=null){
+            $input['image']=$path;
+           }else{
+               $input['image']='no';
+           }
+
 
         $input['user_id']=Auth::id();
         

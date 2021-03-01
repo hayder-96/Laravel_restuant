@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Resources\partfood as food;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
-
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 class PartfoodController extends BaseController
 {
    
@@ -35,6 +35,21 @@ class PartfoodController extends BaseController
         }
 
         
+        
+      if($request->image!=null){
+        
+    
+        $path= Cloudinary::upload($request->file('image')->getRealPath(),
+        array("public_id" =>$request->name,"quality"=>'auto'))->getSecurePath();
+        
+      }
+
+
+      if($request->image!=null){
+        $input['image']=$path;
+       }else{
+           $input['image']='no';
+       }
        
         
 
