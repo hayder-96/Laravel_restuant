@@ -34,9 +34,9 @@ class AdminController extends BaseController
     
         
     
-        $input['password']= Crypt::encrypt( $input['password']);
+       // $input['password']= Crypt::encrypt( $input['password']);
        
-      // $input['password']= Hash::Make( $input['password']);
+       $input['password']= Hash::Make( $input['password']);
         $user=admin::create($input);
          $success['token']=$user->createToken(';ejhih/><{+876yk')->accessToken;
          $success['name']=$user->name;
