@@ -55,10 +55,10 @@ class AdminController extends BaseController
            $users=crypt::decrypt($user->password);
            if($users===$request->password && $user->name==$request->name){
            // if( Auth::guard('admin')->attempt(['name' => $request->name, 'password' => $request->password])){
-                $userr=Auth::user();
-          //  $success['token']=$user->createToken(';ejhih/><{+876yk')->accessToken;
+               // $userr=Auth::user();
+            $success['token']=$user->createToken(';ejhih/><{+876yk')->accessToken;
     
-                return $this->Respone($userr,$users);
+                return $this->Respone($success,$users);
     
     
          } else{
