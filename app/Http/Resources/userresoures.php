@@ -19,7 +19,8 @@ class userresoures extends JsonResource
              'name'=>$this->name,
              'longtude'=>$this->longtude,
              'latidtude'=>$this->latitude,
-              'user_id'=>$this->user_id
+              'user_id'=>$this->user_id,
+              'delivery'=>$this->delivery
         ];
     }
 }

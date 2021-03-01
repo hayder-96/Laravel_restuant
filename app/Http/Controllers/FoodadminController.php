@@ -50,15 +50,31 @@ class FoodadminController extends BaseController
 
 
     
-    public function getfooduser($id)
+    public function getfooduserdone($id)
     {
-        $user=userfood::all()->where('user_id',$id);
+        $user=userfood::all()->where('user_id',$id)->where('delivery','yes');
 
        return $this->Respone(us::collection($user),200);
     }
 
 
     
+    
+    public function getfoodusernot($id)
+    {
+        $user=userfood::all()->where('user_id',$id)->where('delivery','no');
+
+       return $this->Respone(us::collection($user),200);
+    }
+    
+
+
+
+
+
+
+
+
 
     public function store(Request $request)
     {
@@ -148,7 +164,47 @@ class FoodadminController extends BaseController
       }
 
 
+      public function destroyuser($id)
+    {
+        $food=userfood::find($id);
+        
+     $food->delete();
+      return $this->Respone(new food($food),"done delete");
+      }
 
+
+
+
+
+
+
+
+
+
+      public function updatedelivery(Request $request,$id)
+      {
+          $uss=userfood::find($id);
+          $input=$request->all();
+  
+          $valdit=Validator::make($request->all(),[
+  
+              'delivery'=>'required',
+             
+          ]);
+  
+          if($valdit->fails()){
+  
+              return $this->sendError('Failed input',$valdit->errors());
+          }
+  
+          
+  
+          $uss->name=$input['delivery'];
+          $uss->save();
+  
+          return $this->Respone(new food($uss),'Success update');
+      }
+  
 
 
 

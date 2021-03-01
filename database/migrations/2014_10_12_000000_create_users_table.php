@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('longtude');
             $table->string('latitude');
+            $table->string('delivery');
             $table->rememberToken();
             $table->timestamps();
         });

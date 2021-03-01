@@ -36,8 +36,11 @@ Route::middleware('admin:admin')->group(function(){
 
     Route::get('userr',[FoodadminController::class,'indexxx']);
 
-    Route::get('getfooduserr/{id}',[FoodadminController::class,'getfooduser']);
+    Route::get('getfooduserr/{id}',[FoodadminController::class,'getfooduserdone']);
    
+    Route::get('getfooduserrnot/{id}',[FoodadminController::class,'getfoodusernot']);
+
+
     Route::post('getimage',[UpimageController::class,'indexx']);
 
     Route::put('upimagefood/{id}',[FoodadminController::class,'updateimage']);
