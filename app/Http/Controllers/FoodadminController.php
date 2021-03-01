@@ -54,7 +54,7 @@ class FoodadminController extends BaseController
     {
         $user=userfood::all()->where('user_id',$id);
 
-       return $this->Respone($user,200);
+       return $this->Respone(us::collection($user),200);
     }
 
 
