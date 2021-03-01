@@ -43,7 +43,7 @@ Route::middleware('admin:admin')->group(function(){
 
     Route::post('getimage',[UpimageController::class,'indexx']);
 
-    Route::put('upimagedel/{id}',[FoodadminController::class,'updateuser']);
+    Route::put('upuser/{id}',[FoodadminController::class,'updateuser']);
 
     Route::delete('deleteuser/{id}',[FoodadminController::class,'destroyuser']);
 
