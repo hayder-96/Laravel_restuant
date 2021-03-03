@@ -21,12 +21,22 @@ Route::post('Registeruser',[UserController::class,'Register']);
 
 
 
+Route::get('getfood/{id}',[UserController::class,'getpartfood']);
 
+Route::get('getfoodcollection',[UserController::class,'getallfood']);
 
 
 
 Route::middleware('admin:admin')->group(function(){
     
+
+    
+
+
+
+
+
+
     Route::resource('food',FoodadminController::class);
    
     Route::resource('foodpart',PartfoodController::class);
@@ -55,11 +65,12 @@ Route::middleware('admin:admin')->group(function(){
 
 
 
+
 Route::middleware('auth:api')->group(function(){
     
     Route::resource('fooduser',UserController::class);
     
-    Route::get('getfood/{id}',[UserController::class,'indexx']);
+    
    
 
 

@@ -68,7 +68,7 @@ class UserController extends BaseController
    
     
 
-    public function index()
+    public function getallfood()
     {
         $user=foodadmin::all();
 
@@ -80,7 +80,7 @@ class UserController extends BaseController
 
 
    
-    public function indexx($id)
+    public function getpartfood($id)
     {
         $user=partfood::all()->where('food_id',$id);
 

@@ -23,7 +23,7 @@ class FoodadminController extends BaseController
     public function index()
     {
 
-        $user=foodadmin::all();
+        $user=foodadmin::orderBy('created_at','DESC')->get();
 
         return $this->Respone(food::collection($user),200);
        
@@ -246,7 +246,7 @@ class FoodadminController extends BaseController
         $uss->delivery=$input['delivery'];
         $uss->save();
 
-        return $this->Respone(new food($uss),'Success update');
+        return $this->Respone(new ss($uss),'Success update');
     }
 
     }
