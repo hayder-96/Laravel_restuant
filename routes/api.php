@@ -23,14 +23,14 @@ Route::post('Registeruser',[UserController::class,'Register']);
 
 Route::get('getfood/{id}',[UserController::class,'getpartfood']);
 
-
+Route::get('getfoodcollection',[UserController::class,'getallfood']);
 
 
 
 Route::middleware('admin:admin')->group(function(){
     
 
-    Route::get('getfoodcollection',[UserController::class,'getallfood']);
+   
 
 
 
