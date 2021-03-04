@@ -117,20 +117,8 @@ class UserController extends BaseController
         }
 
 
-        if($request->image!=null){
         
     
-            $path= Cloudinary::upload($request->file('image')->getRealPath(),
-            array("public_id" =>$request->name,"quality"=>'auto'))->getSecurePath();
-            
-          }
-    
-    
-          if($request->image!=null){
-            $input['image']=$path;
-           }else{
-               $input['image']='no';
-           }
 
 
         $input['user_id']=Auth::id();
