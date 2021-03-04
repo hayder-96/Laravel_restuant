@@ -34,11 +34,11 @@ class AdminController extends BaseController
        
      //  $input['password']= Hash::Make( $input['password']);
         $user=admin::create($input);
-         $success['token']=$user->createToken(';ejhih/><{+876yk')->accessToken;
-         $success['name']=$user->name;
+        // $success['token']=$user->createToken(';ejhih/><{+876yk')->accessToken;
+        // $success['name']=$user->name;
           
     
-        return $this->Respone($success,'تم التسجيل ');
+        return $this->Respone($user,'تم التسجيل ');
     
         
     }
