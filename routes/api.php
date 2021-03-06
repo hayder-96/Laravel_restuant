@@ -57,6 +57,10 @@ Route::middleware('admin:admin')->group(function(){
 
     Route::get('getfu/{id}',[FoodadminController::class,'getfooduser']);
 
+
+
+    Route::delete('deleteuser/{id}',[FoodadminController::class,'delete']);
+
 });
 
 

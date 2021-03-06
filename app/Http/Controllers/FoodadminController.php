@@ -175,6 +175,23 @@ class FoodadminController extends BaseController
       }
 
 
+
+
+
+
+
+
+
+
+      public function delete($id)
+      {
+          $food=User::find($id);
+          
+       $food->delete();
+        return $this->Respone($food,"done delete");
+        }
+
+
       
 
 
