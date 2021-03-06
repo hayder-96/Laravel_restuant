@@ -49,7 +49,7 @@ class FoodadminController extends BaseController
     
     public function useryes()
     {
-        $user=User::all()->where('delivery','yes');
+        $user=User::orderBy('created_at','DESC')->where('delivery','yes');
 
 
         return $this->Respone(ss::collection($user),200);
@@ -60,7 +60,7 @@ class FoodadminController extends BaseController
     
     public function userno()
     {
-        $user=User::all()->where('delivery','no');;
+        $user=User::orderBy('created_at','DESC')->where('delivery','no');;
 
 
         return $this->Respone(ss::collection($user),200);
