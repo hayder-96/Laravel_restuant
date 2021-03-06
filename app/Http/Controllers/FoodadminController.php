@@ -60,7 +60,7 @@ class FoodadminController extends BaseController
     
     public function userno()
     {
-        $user=User::all()->where('delivery','no');;
+        $user=User::all()->where('delivery','no')->orderBy('created_at','DESC')->get();
 
 
         return $this->Respone(ss::collection($user),200);
