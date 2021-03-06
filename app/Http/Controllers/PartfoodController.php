@@ -11,9 +11,9 @@ use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 class PartfoodController extends BaseController
 {
    
-    public function index()
+    public function indexx($id)
     {
-        $user=partfood::all();
+        $user=partfood::all()->where('food_id',$id);
 
        return $this->Respone(food::collection($user),200);
     }

@@ -40,7 +40,9 @@ Route::middleware('admin:admin')->group(function(){
     Route::resource('food',FoodadminController::class);
    
     Route::resource('foodpart',PartfoodController::class);
-        
+    Route::get('getpartfood/{id}',[PartfoodController::class,'indexx']);
+
+
     Route::resource('upimage',UpimageController::class);
     
     Route::post('updatefood',[FoodadminController::class,'updatefood']);
