@@ -34,17 +34,6 @@ class FoodadminController extends BaseController
 
     
     
-    public function indexxx()
-    {
-        $user=User::all();
-
-
-        return $this->Respone(ss::collection($user),200);
-    }
-
-
-
-
     
     
     public function useryes()

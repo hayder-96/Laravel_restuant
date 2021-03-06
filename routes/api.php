@@ -30,12 +30,6 @@ Route::get('getfoodcollection',[UserController::class,'getallfood']);
 Route::middleware('admin:admin')->group(function(){
     
 
-   
-
-
-
-
-
 
     Route::resource('food',FoodadminController::class);
    
@@ -43,7 +37,7 @@ Route::middleware('admin:admin')->group(function(){
     Route::get('getpartfood/{id}',[PartfoodController::class,'indexx']);
 
 
-    Route::resource('upimage',UpimageController::class);
+   
     
     Route::post('updatefood',[FoodadminController::class,'updatefood']);
 
@@ -51,25 +45,18 @@ Route::middleware('admin:admin')->group(function(){
 
 
 
-
-
-
-    Route::get('userr',[FoodadminController::class,'indexxx']);
-
     Route::get('getfooduseryes',[FoodadminController::class,'useryes']);
    
     Route::get('getfooduserrnot',[FoodadminController::class,'userno']);
 
 
-    Route::post('getimage',[UpimageController::class,'indexx']);
 
+    
     Route::put('upuser/{id}',[FoodadminController::class,'updateuser']);
 
-    Route::delete('deleteuser/{id}',[FoodadminController::class,'destroyuser']);
 
-    Route::put('upimagefood/{id}',[FoodadminController::class,'updateimage']);
-    
-    Route::put('upimagepart/{id}',[PartfoodController::class,'updateimage']);
+    Route::get('getfu/{id}',[FoodadminController::class,'getfooduser']);
+
 });
 
 
