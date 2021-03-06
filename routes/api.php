@@ -43,6 +43,7 @@ Route::middleware('admin:admin')->group(function(){
         
     Route::resource('upimage',UpimageController::class);
     
+    Route::post('updatefood',[FoodadminController::class,'updatefood']);
 
     Route::get('userr',[FoodadminController::class,'indexxx']);
 

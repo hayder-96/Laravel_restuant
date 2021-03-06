@@ -139,9 +139,9 @@ class FoodadminController extends BaseController
     }
 
    
-    public function update(Request $request,$id)
+    public function updatefood(Request $request)
     {
-        $uss=foodadmin::find($id);
+        $uss=foodadmin::find($request->id);
         $input=$request->all();
 
         $valdit=Validator::make($request->all(),[
@@ -156,9 +156,21 @@ class FoodadminController extends BaseController
         }
 
         
-       
 
+        if($request->image!=null){
+        
+    
+            $path= Cloudinary::upload($request->file('image')->getRealPath(),
+            array("public_id" =>$request->name,"quality"=>'auto'))->getSecurePath();
+            
+          }
+       
         $uss->name=$input['name'];
+
+        if($request->image!=null){
+
+            $uss->image=$path;
+        }
         $uss->save();
 
         return $this->Respone(new food($uss),'Success update');
