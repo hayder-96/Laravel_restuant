@@ -45,6 +45,13 @@ Route::middleware('admin:admin')->group(function(){
     
     Route::post('updatefood',[FoodadminController::class,'updatefood']);
 
+    Route::post('updatepart',[FoodadminController::class,'updatefood']);
+
+
+
+
+
+
     Route::get('userr',[FoodadminController::class,'indexxx']);
 
     Route::get('getfooduseryes',[FoodadminController::class,'useryes']);

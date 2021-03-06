@@ -72,9 +72,9 @@ class PartfoodController extends BaseController
     }
 
    
-    public function update(Request $request,$id)
+    public function updatefood(Request $request)
     {
-        $uss=partfood::find($id);
+        $uss=partfood::find($request->id);
         $input=$request->all();
 
         $valdit=Validator::make($request->all(),[
@@ -91,6 +91,20 @@ class PartfoodController extends BaseController
 
         
        
+        if($request->image!=null){
+        
+    
+            $path= Cloudinary::upload($request->file('image')->getRealPath(),
+            array("public_id" =>$request->name,"quality"=>'auto'))->getSecurePath();
+            
+          }
+       
+       
+
+        if($request->image!=null){
+
+            $uss->image=$path;
+        }
 
         $uss->name=$input['name'];
         $uss->price=$input['price'];
@@ -110,26 +124,5 @@ class PartfoodController extends BaseController
 
 
       
-    public function updateimage(Request $request, $id)
-    {
-        
-        $uss=partfood::find($id);
-        $input=$request->all();
-
-        $valdit=Validator::make($request->all(),[
-
-            'image'=>'required'
-           
-        ]);
-
-        if($valdit->fails()){
-
-            return $this->sendError('Failed input',$valdit->errors());
-        }
-
-        $uss->image=$input['image'];
-        $uss->save();
-
-        return $this->Respone($uss,'Success update');
-    }
+   
     }

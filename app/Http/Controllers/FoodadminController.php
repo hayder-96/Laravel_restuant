@@ -187,13 +187,6 @@ class FoodadminController extends BaseController
 
 
       
-    public function destroyuser($id)
-    {
-        $food=User::find($id);
-        
-     $food->delete();
-      return $this->Respone(new food($food),"done delete");
-      }
 
 
 
@@ -207,33 +200,6 @@ class FoodadminController extends BaseController
 
       
     
-    public function updateimage(Request $request,$id)
-    {
-        
-
-        $uss=foodadmin::find($id);
-        $input=$request->all();
-
-        $valdit=Validator::make($request->all(),[
-
-            'image'=>'required'
-           
-        ]);
-
-        if($valdit->fails()){
-
-            return $this->sendError('Failed input',$valdit->errors());
-        }
-
-        $uss->image=$input['image'];
-        $uss->save();
-
-        return $this->Respone($uss,'Success update');
-    }
-
-
-
-
 
 
     public function updateuser(Request $request,$id)
