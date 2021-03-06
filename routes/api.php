@@ -47,7 +47,7 @@ Route::middleware('admin:admin')->group(function(){
     
     Route::post('updatefood',[FoodadminController::class,'updatefood']);
 
-    Route::post('updatepart',[FoodadminController::class,'updatefood']);
+    Route::post('updatepart',[PartfoodController::class,'updatefood']);
 
 
 
