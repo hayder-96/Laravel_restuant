@@ -13,7 +13,7 @@ class UsernotyController extends BaseController
     public function index()
     {
         
-        $user=usernoty::where('user_id',Auth::id());
+        $user=usernoty::where('user_id',Auth::id())->get();
 
         return $this->Respone(resnoty::collection($user),200);
 
