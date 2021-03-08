@@ -26,22 +26,18 @@ class UsernotyController extends BaseController
     public function store(Request $request)
     {
         
-
         $input=$request->all();
 
         $valdit=Validator::make($request->all(),[
 
-            'noty'=>'required'
-           
+            'noty'=>'required',
+             'user_id'=>'required'
         ]);
         if($valdit->fails()){
 
             return $this->sendError('Failed input',$valdit->errors());
         }
 
-        
-        $input['user_id']=Auth::id();
-        
 
         $food=usernoty::create($input);
 
