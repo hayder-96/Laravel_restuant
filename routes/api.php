@@ -87,7 +87,7 @@ Route::middleware('auth:api')->group(function(){
     
     
    
-
+    Route::resource('usernoty',UsernotyController::class);
 
    
 });
