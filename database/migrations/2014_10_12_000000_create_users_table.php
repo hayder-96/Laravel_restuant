@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('longtude')->unique();
             $table->string('latitude')->unique();
             $table->string('delivery');
+            $table->string('noty');
             $table->rememberToken();
             $table->timestamps();
         });

@@ -58,6 +58,26 @@ class FoodadminController extends BaseController
 
 
 
+    public function usernoty()
+    {
+        $user=User::where('delivery','no')->where('noty','no')->orderBy('created_at','DESC')->get();
+
+
+        return $this->Respone(ss::collection($user),200);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
     
     public function getfooduser($id)
     {
@@ -231,6 +251,56 @@ class FoodadminController extends BaseController
         $uss->save();
 
         return $this->Respone(new ss($uss),'Success update');
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public function updatenoty(Request $request,$id)
+    {
+        $uss=User::find($id);
+        $input=$request->all();
+
+        $valdit=Validator::make($request->all(),[
+
+            'noty'=>'required',
+           
+        ]);
+
+        if($valdit->fails()){
+
+            return $this->sendError('Failed input',$valdit->errors());
+        }
+
+        
+       
+
+        $uss->noty=$input['noty'];
+        $uss->save();
+
+        return $this->Respone($uss,'Success update');
     }
 
     }

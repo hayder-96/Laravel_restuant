@@ -5,6 +5,7 @@ use App\Http\Controllers\FoodadminController;
 use App\Http\Controllers\PartfoodController;
 use App\Http\Controllers\UpimageController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\UsernotyController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -60,6 +61,19 @@ Route::middleware('admin:admin')->group(function(){
 
 
     Route::delete('deleteuser/{id}',[FoodadminController::class,'delete']);
+
+
+
+
+    Route::get('getnoty',[FoodadminController::class,'usernoty']);
+
+
+    Route::resource('usernoty',UsernotyController::class);
+
+
+    Route::put('upnotyy/{id}',[FoodadminController::class,'updatenoty']);
+
+
 
 });
 

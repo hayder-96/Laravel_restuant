@@ -17,7 +17,8 @@ class User extends Authenticatable
         'name',
         'longtude',
         'latitude',
-        'delivery'
+        'delivery',
+        "noty"
     ];
 
    
