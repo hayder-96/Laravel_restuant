@@ -36,9 +36,12 @@ class OpclController extends BaseController
 
        
 
-
+          if($request->open !=null){
         $uss->open=$input['open'];
+          }
+          if($request->close !=null){
         $uss->close=$input['close'];
+          }
         $uss->save();
 
         return $this->Respone($uss,'Success update');
