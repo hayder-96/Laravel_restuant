@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FoodadminController;
+use App\Http\Controllers\OpclController;
 use App\Http\Controllers\PartfoodController;
 use App\Http\Controllers\UpimageController;
 use App\Http\Controllers\UserController;
@@ -19,6 +20,7 @@ Route::post('Login',[AdminController::class,'login']);
 Route::post('Registeruser',[UserController::class,'Register']);
 
 
+Route::get('getopcl',[FoodadminController::class,'indexx']);
 
 
 
@@ -73,6 +75,8 @@ Route::middleware('admin:admin')->group(function(){
 
     Route::put('upnotyy/{id}',[FoodadminController::class,'updatenoty']);
 
+
+    Route::resource('opcl',OpclController::class);
 
 
 });
