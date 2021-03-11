@@ -20,7 +20,7 @@ Route::post('Login',[AdminController::class,'login']);
 Route::post('Registeruser',[UserController::class,'Register']);
 
 
-Route::get('getopcl',[FoodadminController::class,'indexx']);
+Route::get('getopcl',[OpclController::class,'indexx']);
 
 
 
