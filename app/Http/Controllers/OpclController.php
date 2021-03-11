@@ -14,7 +14,7 @@ class OpclController extends BaseController
         
         $user=opcl::all();
 
-        return $this->Respone(opcl::collection($user),200);
+        return $this->Respone(opclo::collection($user),200);
     }
 
    
