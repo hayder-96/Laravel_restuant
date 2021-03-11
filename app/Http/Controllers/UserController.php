@@ -15,6 +15,7 @@ use App\Http\Resources\foodadmin as food;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Resources\userresoures as ss;
 use App\Models\usersecond;
+use App\Models\opcl;
 use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 class UserController extends BaseController
 {
@@ -72,7 +73,14 @@ class UserController extends BaseController
     {
         $user=foodadmin::all();
 
+        $o=opcl::where('open','true')->get();
+
+        if($o->open=='true'){
+
        return $this->Respone(food::collection($user),200);
+        }else{
+            return $this->Respone('null','false');
+        }
     }
 
 
@@ -84,7 +92,15 @@ class UserController extends BaseController
     {
         $user=partfood::all()->where('food_id',$id);
 
-       return $this->Respone(foodd::collection($user),200);
+        $o=opcl::where('open','true')->get();
+
+        if($o->open=='true'){
+
+            return $this->Respone(foodd::collection($user),200);
+        }else{
+            return $this->Respone('null','false');
+        }
+      
     }
 
 
