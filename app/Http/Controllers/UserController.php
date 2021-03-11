@@ -80,7 +80,7 @@ class UserController extends BaseController
 
        return $this->Respone(food::collection($user),200);
         }else{
-            return $this->Respone('null','false');
+            return $this->Respone(food::collection($user),'false');
         }
     }
     }
@@ -94,15 +94,16 @@ class UserController extends BaseController
     {
         $user=partfood::all()->where('food_id',$id);
 
-        $o=opcl::where('open','true')->get();
+        $o=opcl::all();
 
-        if($o->open=='true'){
+        foreach($o as $oo){
+        if($oo->open=='true'){
 
             return $this->Respone(foodd::collection($user),200);
         }else{
-            return $this->Respone('null','false');
+            return $this->Respone(foodd::collection($user),'false');
         }
-      
+    }
     }
 
 
