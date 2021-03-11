@@ -73,14 +73,16 @@ class UserController extends BaseController
     {
         $user=foodadmin::all();
 
-         $o=opcl::where('open','true')->first();
+         $o=opcl::all();
 
-         if($o->open=='true'){
+         foreach($o as $oo){
+         if($oo->open=='true'){
 
        return $this->Respone(food::collection($user),200);
         }else{
             return $this->Respone('null','false');
         }
+    }
     }
 
 
