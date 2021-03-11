@@ -34,17 +34,7 @@ class OpclController extends BaseController
         $uss=opcl::find($id);
         $input=$request->all();
 
-        $valdit=Validator::make($request->all(),[
-
-            'open'=>'required',
-             'close'=>'required'
-           
-        ]);
-
-        if($valdit->fails()){
-
-            return $this->sendError('Failed input',$valdit->errors());
-        }
+       
 
 
         $uss->open=$input['open'];
