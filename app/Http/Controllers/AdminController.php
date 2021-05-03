@@ -21,7 +21,7 @@ class AdminController extends BaseController
             'name'=>'required',
               'password'=>'required'
          
-    
+
         ]);
         if($validit->fails()){
     
@@ -55,8 +55,6 @@ class AdminController extends BaseController
            $user=admin::where('name',$request->name)->first();
            $users=crypt::decrypt($user->password);
            if($users===$request->password && $user->name==$request->name){
-           // if( Auth::guard('admin')->attempt(['name' => $request->name, 'password' => $request->password])){
-               // $userr=Auth::user();
                try{
             $succes['token']=$user->createToken(';ejhih/><{+876yk')->accessToken;
     

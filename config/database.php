@@ -47,10 +47,10 @@ return [
 
    'mysql' => [
         'driver' => 'mysql',
-        'host' => 'us-cdbr-east-03.cleardb.com',
-        'database' => 'heroku_6e3848e693cca10',
-        'username' => 'b5e8bbe460cd9c',
-        'password' => 'be1d986d',
+        'host' => 'us-mm-auto-dca-03-b.cleardb.net',
+        'database' => 'heroku_d253783381123da',
+        'username' => 'b2167c0b06b231',
+        'password' => 'dc0856d8',
         'charset' => 'utf8mb4',
         'collation' => 'utf8mb4_unicode_ci',
         'prefix' => '',
